@@ -1,0 +1,3 @@
+# Xiaomi riva - Camera
+persist.vendor.camera.CDS=off
+persist.vendor.camera.video.CDS=off
