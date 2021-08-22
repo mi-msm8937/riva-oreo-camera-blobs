@@ -13,15 +13,15 @@ function blob_fixup() {
             ;;
         vendor/lib/libmmcamera_interface.so)
             # Direct loading this into camera.msm8937.so causes segfault
-            "${PATCHELF}" --print-needed "${2}"|grep "libshims_gui.so">/dev/null
+            patchelf --print-needed "${2}"|grep "libshims_gui.so">/dev/null
             if [ $? -ne 0 ]; then
-                "${PATCHELF}" --add-needed "libshims_gui.so" "${2}"
+                patchelf --add-needed "libshims_gui.so" "${2}"
             fi
             ;;
         vendor/lib/libmpbase.so \
         |vendor/lib/libFaceGrade.so \
         |vendor/lib/libarcsoft_beauty_shot.so)
-            "${PATCHELF}" --replace-needed "libandroid.so" "libshims_android.so" "${2}"
+            patchelf --replace-needed "libandroid.so" "libshims_android.so" "${2}"
             ;;
     esac
 }
