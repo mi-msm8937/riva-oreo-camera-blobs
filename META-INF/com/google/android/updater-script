@@ -1,0 +1,17 @@
+ifelse(is_mounted("/vendor"), unmount("/vendor"));
+show_progress(0.000000, 0);
+ui_print("Mount /vendor...");
+ui_print(" ");
+set_progress(0.100000);
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/cust", "/vendor", "");
+ui_print("Extracting files...");
+ui_print(" ");
+set_progress(0.200000);
+package_extract_dir("vendor", "/vendor");
+set_metadata("/vendor/bin/mm-qcamera-daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mm-qcamerad_exec:s0");
+ui_print("Unmount /vendor...");
+ui_print(" ");
+set_progress(0.900000);
+ifelse(is_mounted("/vendor"), unmount("/vendor"));
+set_progress(1.000000);
+ui_print("Successfully Installed");
