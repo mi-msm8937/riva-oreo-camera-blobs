@@ -1529,6 +1529,7 @@ typedef struct {
     int32_t est_snap_iso_value;
     uint32_t est_snap_luma;
     uint32_t est_snap_target;
+    uint32_t xiaomi_reserved2;
 } cam_3a_params_t;
 
 typedef struct {
@@ -1911,6 +1912,7 @@ typedef enum {
     CAM_INTF_PARM_ROTATION,
     CAM_INTF_PARM_SCALE,
     CAM_INTF_PARM_VT, /* indicating if it's a Video Call Apllication */
+    XM_01,
     CAM_INTF_META_CROP_DATA,
     CAM_INTF_META_PREP_SNAPSHOT_DONE, /* 60 */
     CAM_INTF_META_GOOD_FRAME_IDX_RANGE,
